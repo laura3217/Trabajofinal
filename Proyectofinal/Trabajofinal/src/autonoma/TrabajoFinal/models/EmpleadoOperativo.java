@@ -14,7 +14,7 @@ public class EmpleadoOperativo extends Empleado {
     private String area;
 
     public EmpleadoOperativo(String nombre, int numeroDocumento, int edad, double salarioBase, String area) {
-        super(nombre, numeroDocumento, edad, salarioBase);
+        super(nombre, salarioBase, null);
         this.area = area;
     }
 
