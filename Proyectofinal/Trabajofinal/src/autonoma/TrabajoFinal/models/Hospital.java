@@ -6,6 +6,7 @@ package autonoma.TrabajoFinal.models;
 
 import autonoma.TrabajoFinal.models.Empleado;
 import autonoma.TrabajoFinal.views.InventarioPaciente;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -162,17 +163,79 @@ public class Hospital {
             }
         }
     }
-
-    public void agregarEmpleado(Empleado empleado) {
-        empleados.add(empleado);
+    
+    ////////////////////////////////////////////////////////////////////////////
+    // Metodos de gestión de productos o CRUD de productos
+    ////////////////////////////////////////////////////////////////////////////
+    public boolean agregarEmpleado(Empleado empleado) {
+        return this.inventario.agregarEmpleado(empleado);
     }
 
-    public void mostrarEmpleados() {
-        System.out.println("Empleados del hospital " + nombre + ":");
-        for (Empleado empleado : empleados) {
-            System.out.println(empleado);
+    ////////////////////////////////////////////////////////////////////////////
+    public Empleado buscarEmpleado(Empleado empleado) {
+
+        return this.inventario.buscarEmpleado(empleado);
+    }
+
+    public Empleado buscarEmpleado( int numeroDocumento) {
+
+        return this.inventario.buscarEmpleado(numeroDocumento);
+    }
+
+    public Empleado buscarEmpleado(String nombre) {
+
+        return this.inventario.buscarEmpleado(nombre);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    public Empleado actualizarEmpleado(int numeroDocumento, Empleado empleado) {
+        return this.inventario.actualizarEmpleado(numeroDocumento, empleado);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    public Empleado eliminarEmpleado(int numeroDocumento) {
+
+        return this.inventario.eliminarEmpleado(numeroDocumento);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    public String mostrarInventario() {
+
+        return this.inventario.mostrarInventario();
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    public boolean iniciarSesion(String user, String password) {
+        return this.administrador.getUsername().equals(user) && this.administrador.getPassword().equals(password);
+    }
+
+    public void cargarEmpleado() throws IOException {
+
+        ArrayList<String> archivo = this.lector.leer("productos.txt");
+        ArrayList<Empleado> empleados = this.convertirEmpleados(archivo);
+        this.inventario.cargarProductos(empleados);
+
+    }
+
+    private ArrayList<Empleado> convertirEmpleados(ArrayList<String> archivo) {
+
+        ArrayList<Empleado> empleados = new ArrayList<>();
+        for (String linea : archivo) {
+
+            String nombre = linea.split(";")[0];
+            double  salarioBase = Double.parseDouble(linea.split(";")[1]);
+
+            Empleado p = new Empleado(nombre, salarioBase );
+            empleados.add(p);
         }
 
+        return empleados;
     }
+
+}
+
+    
+
+
 
 }
