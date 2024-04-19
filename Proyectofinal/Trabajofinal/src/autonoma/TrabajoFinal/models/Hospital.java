@@ -5,7 +5,6 @@
 package autonoma.TrabajoFinal.models;
 
 import autonoma.TrabajoFinal.models.Empleado;
-import autonoma.TrabajoFinal.views.InventarioPaciente;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
