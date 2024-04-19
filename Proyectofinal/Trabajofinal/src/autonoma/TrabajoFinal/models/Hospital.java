@@ -10,14 +10,17 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
-
 /**
  *
  * @author laura
  */
 public class Hospital {
-      private String nombre;
+
+    private String nombre;
+
+        /**
+         * direccion hospital
+         */
     private String direccion;
     private String telefono;
     private String logo;
@@ -28,11 +31,8 @@ public class Hospital {
     private double latitud;
     private double longitud;
     private double presupuestoGlobal;
-   private List<Empleado> empleados;
-       private Lector lector;
-
-   
-    
+    private List<Empleado> empleados;
+    private Lector lector;
 
     public Hospital(String nombre, String direccion, String telefono, String logo, double presupuesto, double metaVentasAnual, String fechaFundacion, String estado, double latitud, double longitud, double presupuestoGlobal) {
         this.nombre = nombre;
@@ -46,11 +46,9 @@ public class Hospital {
         this.latitud = latitud;
         this.longitud = longitud;
         this.presupuestoGlobal = presupuestoGlobal;
-                this.empleados = new ArrayList<>();
-                        this.lector = new LectorArchivoTextoPlano();
+        this.empleados = new ArrayList<>();
+        this.lector = new LectorArchivoTextoPlano();
 
-
-        
     }
 
     public String getNombre() {
@@ -141,8 +139,6 @@ public class Hospital {
         this.presupuestoGlobal = presupuestoGlobal;
     }
 
-    
-    
     public Hospital(double presupuestoGlobal) {
         this.presupuestoGlobal = presupuestoGlobal;
     }
@@ -166,16 +162,17 @@ public class Hospital {
             }
         }
     }
-   public void agregarEmpleado(Empleado empleado) {
-    empleados.add(empleado);
-}
-     public void mostrarEmpleados() {
+
+    public void agregarEmpleado(Empleado empleado) {
+        empleados.add(empleado);
+    }
+
+    public void mostrarEmpleados() {
         System.out.println("Empleados del hospital " + nombre + ":");
         for (Empleado empleado : empleados) {
             System.out.println(empleado);
         }
 
-     }
-     
-     
+    }
+
 }
