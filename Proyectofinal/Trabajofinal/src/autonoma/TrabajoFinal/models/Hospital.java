@@ -22,6 +22,7 @@ public class Hospital {
         /**
          * direccion hospital
          */
+    private Inventario inventario;
     private String direccion;
     private String telefono;
     private String logo;
@@ -49,8 +50,17 @@ public class Hospital {
         this.presupuestoGlobal = presupuestoGlobal;
         this.empleados = new ArrayList<>();
         this.lector = new LectorArchivoTextoPlano();
-
     }
+
+    public Inventario getInventario() {
+        return inventario;
+    }
+
+    public void setInventario(Inventario inventario) {
+        this.inventario = inventario;
+    }
+    
+    
 
     public String getNombre() {
         return nombre;
@@ -225,7 +235,7 @@ public class Hospital {
             String nombre = linea.split(";")[0];
             double  salarioBase = Double.parseDouble(linea.split(";")[1]);
 
-            Empleado p = new Empleado(nombre, salarioBase );
+            Empleado p = new Empleado(nombre, salarioBase ) {};
             empleados.add(p);
         }
 
@@ -238,4 +248,4 @@ public class Hospital {
 
 
 
-}
+
