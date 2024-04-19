@@ -1,5 +1,7 @@
-
 package autonoma.TrabajoFinal.models;
+
+
+
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,7 +10,8 @@ import java.util.ArrayList;
  *
  * Escribe el archivo de memoria interna
  *
-
+ * @author Carlos Andres Rojas Parra
+ * @version 1.0.0
  */
 public interface Escritor {
     

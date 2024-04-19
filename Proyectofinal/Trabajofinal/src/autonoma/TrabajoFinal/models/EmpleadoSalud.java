@@ -15,7 +15,7 @@ public class EmpleadoSalud extends Empleado {
     private int horasTrabajadas;
 
     public EmpleadoSalud(String nombre, int numeroDocumento, int edad, double salarioBase, String especialidad, int horasTrabajadas) {
-        super(nombre, numeroDocumento, edad, salarioBase);
+        super(nombre, salarioBase, null);
         this.especialidad = especialidad;
         this.horasTrabajadas = horasTrabajadas;
     }
